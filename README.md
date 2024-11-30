@@ -1,4 +1,4 @@
-# Docker | Ungoogled Chromium + Chromedriver
+# 🐳 Docker | Ungoogled Chromium + Chromedriver
 
 Как оказалось, сдружить версии Chromedriver и Ungoogled Chromium для правильной работы — непростая задача.
 
