@@ -10,11 +10,11 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     xvfb unzip ca-certificates && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
-COPY app/requirements.txt /app/
+COPY requirements.txt /app/
 RUN pip install --no-cache-dir -r requirements.txt
 
 RUN wget -O /tmp/ungoogled_chromium.zip http://download.extpankov.ru/ungoogled_chromium.zip && \
-    unzip /tmp/ungoogled_chromium.zip -d /usr/lib/ungoogled-chromium/ && \
+    unzip /tmp/ungoogled_chromium.zip -d /usr/lib/ && \
     rm /tmp/ungoogled_chromium.zip
 
 RUN chmod +x /usr/lib/ungoogled-chromium/chrome-wrapper && \
@@ -26,6 +26,7 @@ ENV CHROME_BIN=/usr/bin/chromium
 ENV CHROMEDRIVER_PATH=/usr/bin/chromedriver
 
 COPY . /app/
+
 
 # Команда на выполнение по умолчанию
 # CMD ["python", "main.py"]
